@@ -178,8 +178,24 @@ html, body, [data-testid="stAppViewContainer"] {
 /* ── Sidebar ─── */
 .sb-label {
   font-size: 10px; font-weight: 700;
-  color: #6E7681; letter-spacing: 1px;
+  color: #E6EDF3; letter-spacing: 1px;
   text-transform: uppercase; margin-bottom: 8px;
+}
+/* ── Sidebar Ratio Text ─── */
+[data-testid="stSidebar"] .stRadio label {
+    color: #E6EDF3 !important;
+    font-weight: 500;
+}
+
+/* item yang dipilih */
+[data-testid="stSidebar"] .stRadio label[data-checked="true"] {
+    color: #FFFFFF !important;
+    font-weight: 700;
+}
+
+/* hover */
+[data-testid="stSidebar"] .stRadio label:hover {
+    color: #79C0FF !important;
 }
 
 /* ── Scrollbar ─── */
