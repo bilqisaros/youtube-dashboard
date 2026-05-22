@@ -73,7 +73,7 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 .hero-title span { color: #58A6FF; }
 .hero-sub {
-  font-size: 15px; color: #8B949E;
+  font-size: 15px; color: #E6EDF3;
   max-width: 620px; line-height: 1.75;
 }
 
@@ -99,7 +99,7 @@ html, body, [data-testid="stAppViewContainer"] {
   font-family: 'Playfair Display', serif;
   font-size: 38px; font-weight: 900; line-height: 1;
 }
-.kard-lbl { font-size: 12px; color: #8B949E; margin-top: 6px; font-weight: 500; }
+.kard-lbl { font-size: 12px; color: #E6EDF3; margin-top: 6px; font-weight: 500; }
 
 /* ── Section ─── */
 .sec-head {
@@ -107,7 +107,7 @@ html, body, [data-testid="stAppViewContainer"] {
   font-size: 22px; font-weight: 700; color: #E6EDF3;
   margin-bottom: 4px;
 }
-.sec-sub { font-size: 13px; color: #8B949E; margin-bottom: 20px; line-height: 1.65; }
+.sec-sub { font-size: 13px; color: #E6EDF3; margin-bottom: 20px; line-height: 1.65; }
 .sec-line {
   height: 2px;
   background: linear-gradient(90deg, #58A6FF 0%, transparent 100%);
@@ -125,7 +125,7 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 .t-card:hover { border-color: #30363D; }
 .t-title { font-weight: 600; font-size: 14px; color: #E6EDF3; margin-bottom: 5px; }
-.t-desc { font-size: 12px; color: #8B949E; line-height: 1.6; margin-bottom: 10px; }
+.t-desc { font-size: 12px; color: #E6EDF3; line-height: 1.6; margin-bottom: 10px; }
 .chip {
   display: inline-block;
   background: rgba(88,166,255,.08);
@@ -173,7 +173,7 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 .pipe-title { font-weight: 600; font-size: 13px; color: #E6EDF3; margin-bottom: 3px; }
 .pipe-tech { font-size: 11px; color: #58A6FF; font-weight: 600; margin-bottom: 6px; }
-.pipe-desc { font-size: 11px; color: #8B949E; line-height: 1.55; }
+.pipe-desc { font-size: 11px; color: #E6EDF3; line-height: 1.55; }
 
 /* ── Sidebar ─── */
 .sb-label {
@@ -181,21 +181,16 @@ html, body, [data-testid="stAppViewContainer"] {
   color: #E6EDF3; letter-spacing: 1px;
   text-transform: uppercase; margin-bottom: 8px;
 }
-/* ── Sidebar Ratio Text ─── */
-[data-testid="stSidebar"] .stRadio label {
+/* ── Warna Teks Menu Sidebar ─── *
+/* semua menu */
+section[data-testid="stSidebar"] .stRadio p {
     color: #E6EDF3 !important;
-    font-weight: 500;
 }
 
-/* item yang dipilih */
-[data-testid="stSidebar"] .stRadio label[data-checked="true"] {
-    color: #FFFFFF !important;
-    font-weight: 700;
-}
-
-/* hover */
-[data-testid="stSidebar"] .stRadio label:hover {
+/* menu aktif */
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) p {
     color: #79C0FF !important;
+    font-weight: 700 !important;
 }
 
 /* ── Scrollbar ─── */
@@ -296,7 +291,7 @@ SAMPLE_COMMENTS = [
 BASE_LAYOUT = dict(
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
-    font=dict(family="DM Sans", color="#8B949E"),
+    font=dict(family="DM Sans", color="#E6EDF3"),
     margin=dict(t=30, b=10, l=10, r=10),
 )
 
@@ -331,7 +326,7 @@ def _topic_bar():
         marker=dict(color=colors, opacity=0.82),
         text=[f"  {c}" for c in counts],
         textposition="outside",
-        textfont=dict(color="#8B949E", size=12),
+        textfont=dict(color="#E6EDF3", size=12),
         hovertemplate="<b>%{y}</b><br>%{x} komentar<extra></extra>",
     ))
     fig.update_layout(
@@ -356,7 +351,7 @@ def _word_bar(top_n=20):
     ))
     fig.update_layout(
         **BASE_LAYOUT, height=340,
-        xaxis=dict(tickangle=-40, tickfont=dict(size=11, color="#8B949E"),
+        xaxis=dict(tickangle=-40, tickfont=dict(size=11, color="#E6EDF3"),
                    showgrid=False, zeroline=False),
         yaxis=dict(gridcolor="#21262D", zeroline=False, tickfont=dict(size=11)),
     )
@@ -403,9 +398,9 @@ def _length_hist():
     fig.update_layout(
         **BASE_LAYOUT, height=290,
         xaxis=dict(title="Jumlah Kata", gridcolor="#21262D", zeroline=False,
-                   title_font=dict(color="#8B949E"), tickfont=dict(size=11)),
+                   title_font=dict(color="#E6EDF3"), tickfont=dict(size=11)),
         yaxis=dict(title="Komentar", gridcolor="#21262D", zeroline=False,
-                   title_font=dict(color="#8B949E"), tickfont=dict(size=11)),
+                   title_font=dict(color="#E6EDF3"), tickfont=dict(size=11)),
     )
     return fig
 
@@ -427,16 +422,16 @@ def _vocab_coverage():
                     line=dict(color="#0D1117", width=2)),
         text=["216 kata - 50%", "972 kata - 80%"],
         textposition=["top right", "top right"],
-        textfont=dict(size=11, color="#8B949E"),
+        textfont=dict(size=11, color="#E6EDF3"),
         showlegend=False,
         hoverinfo="skip",
     ))
     fig.update_layout(
         **BASE_LAYOUT, height=270, showlegend=False,
         xaxis=dict(title="Kata Unik", gridcolor="#21262D", zeroline=False,
-                   title_font=dict(color="#8B949E"), tickfont=dict(size=11)),
+                   title_font=dict(color="#E6EDF3"), tickfont=dict(size=11)),
         yaxis=dict(title="Cakupan (%)", gridcolor="#21262D", zeroline=False,
-                   title_font=dict(color="#8B949E"), tickfont=dict(size=11), range=[0,105]),
+                   title_font=dict(color="#E6EDF3"), tickfont=dict(size=11), range=[0,105]),
     )
     return fig
 
@@ -468,17 +463,17 @@ def _radar():
     fig.update_layout(
         polar=dict(
             bgcolor="rgba(0,0,0,0)",
-            angularaxis=dict(tickfont=dict(size=11, color="#8B949E"),
+            angularaxis=dict(tickfont=dict(size=11, color="#E6EDF3"),
                              gridcolor="#21262D", linecolor="#21262D"),
             radialaxis=dict(visible=True, range=[0, 1],
-                            tickfont=dict(size=9, color="#8B949E"),
+                            tickfont=dict(size=9, color="#E6EDF3"),
                             gridcolor="#21262D", linecolor="#21262D",
                             tickvals=[0.2, 0.4, 0.6, 0.8]),
         ),
         **BASE_LAYOUT,
         height=380,
         showlegend=True,
-        legend=dict(font=dict(color="#8B949E", size=11), bgcolor="rgba(0,0,0,0)"),
+        legend=dict(font=dict(color="#E6EDF3", size=11), bgcolor="rgba(0,0,0,0)"),
     )
     return fig
 
@@ -544,7 +539,7 @@ with st.sidebar:
       <div style='font-family:Playfair Display,serif;font-size:20px;font-weight:900;color:#E6EDF3;'>
         EduDiscourse
       </div>
-      <div style='font-size:11px;color:#6E7681;margin-top:4px;letter-spacing:.6px;'>
+      <div style='font-size:11px;color:#E6EDF3;margin-top:4px;letter-spacing:.6px;'>
         NLP Analytics Dashboard
       </div>
     </div>
@@ -568,7 +563,7 @@ with st.sidebar:
     st.markdown("""
     <div class='sb-label'>Sumber Data</div>
     <div style='background:#0D1117;border:1px solid #21262D;border-radius:8px;
-                padding:12px;font-size:12px;color:#8B949E;line-height:1.65;'>
+                padding:12px;font-size:12px;color:#E6EDF3;line-height:1.65;'>
       <b style='color:#E6EDF3;'>YouTube</b><br>
       "Pendidikan Indonesia Hancur?"<br>Guru Gembul x Cania Citta<br><br>
       <a href='https://www.youtube.com/watch?v=nJIz3ZOaGaA' target='_blank'
@@ -579,7 +574,7 @@ with st.sidebar:
     st.markdown("""
     <div style='margin-top:16px;'>
     <div class='sb-label'>Teknologi</div>
-    <div style='font-size:12px;color:#8B949E;line-height:1.9;'>
+    <div style='font-size:12px;color:#E6EDF3;line-height:1.9;'>
       - Python + YouTube Data API v3<br>
       - NLTK + PySastrawi (Stemming)<br>
       - scikit-learn (TF-IDF + LDA)<br>
@@ -592,7 +587,7 @@ with st.sidebar:
     <div style='margin-top:18px;padding:10px 12px;
                 background:rgba(88,166,255,.05);
                 border:1px solid rgba(88,166,255,.14);
-                border-radius:8px;font-size:11px;color:#6E7681;line-height:1.6;'>
+                border-radius:8px;font-size:11px;color:#E6EDF3;line-height:1.6;'>
       Bagian dari penelitian akademik tentang diskursus pendidikan Indonesia di media sosial.
     </div>
     """, unsafe_allow_html=True)
@@ -703,7 +698,7 @@ elif page == "Statistik Teks":
             <div class='kard' style='margin-bottom:14px;'>
               <div style='font-family:Playfair Display,serif;font-size:34px;
                           font-weight:900;color:{clr};'>{val}</div>
-              <div style='font-size:12px;color:#8B949E;margin-top:4px;'>{lbl}</div>
+              <div style='font-size:12px;color:#E6EDF3;margin-top:4px;'>{lbl}</div>
               <div style='font-size:11px;color:{clr};margin-top:3px;opacity:.7;'>{unit}</div>
             </div>
             """, unsafe_allow_html=True)
@@ -791,10 +786,10 @@ elif page == "Analisis Kata":
         wc_buf = _wordcloud_img()
         st.image(wc_buf, use_container_width=True)
 
-        st.markdown("<br><div style='font-size:13px;color:#8B949E;font-weight:600;margin-bottom:12px;'>5 Kata Paling Dominan</div>", unsafe_allow_html=True)
+        st.markdown("<br><div style='font-size:13px;color:#E6EDF3;font-weight:600;margin-bottom:12px;'>5 Kata Paling Dominan</div>", unsafe_allow_html=True)
         top5_cols = st.columns(5)
         top5 = list(WORD_FREQ.items())[:5]
-        rank_colors = ["#E3B341", "#8B949E", "#C07830", "#58A6FF", "#58A6FF"]
+        rank_colors = ["#E3B341", "#E6EDF3", "#C07830", "#58A6FF", "#58A6FF"]
         for i, (word, freq) in enumerate(top5):
             with top5_cols[i]:
                 st.markdown(f"""
@@ -809,7 +804,7 @@ elif page == "Analisis Kata":
                 """, unsafe_allow_html=True)
 
     with tab2:
-        st.markdown("<div style='margin:10px 0 4px;font-size:13px;color:#8B949E;font-weight:600;'>20 Kata Paling Sering Muncul (Unigram)</div>", unsafe_allow_html=True)
+        st.markdown("<div style='margin:10px 0 4px;font-size:13px;color:#E6EDF3;font-weight:600;'>20 Kata Paling Sering Muncul (Unigram)</div>", unsafe_allow_html=True)
         st.plotly_chart(_word_bar(20), use_container_width=True, config={"displayModeBar": False})
 
         st.markdown("""
@@ -821,7 +816,7 @@ elif page == "Analisis Kata":
         </div>
         """, unsafe_allow_html=True)
 
-        st.markdown("<br><div style='font-size:13px;color:#8B949E;font-weight:600;margin-bottom:12px;'>Tabel Frekuensi Kata</div>", unsafe_allow_html=True)
+        st.markdown("<br><div style='font-size:13px;color:#E6EDF3;font-weight:600;margin-bottom:12px;'>Tabel Frekuensi Kata</div>", unsafe_allow_html=True)
         df_words = pd.DataFrame([
             {"Peringkat": i + 1, "Kata (Stemmed)": w,
              "Frekuensi": f, "Persen dari Total": f"{f/12366*100:.2f}%"}
@@ -893,7 +888,7 @@ elif page == "Pemodelan Topik LDA":
             <div class='kard'>
               <div style='font-family:Playfair Display,serif;font-size:26px;
                           font-weight:900;color:{clr};'>{val}</div>
-              <div style='font-size:12px;color:#8B949E;margin-top:5px;'>{lbl}</div>
+              <div style='font-size:12px;color:#E6EDF3;margin-top:5px;'>{lbl}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -995,7 +990,7 @@ elif page == "Pipeline NLP":
     st.markdown("<br><div class='sec-head' style='font-size:17px;'>Contoh Transformasi Teks</div>", unsafe_allow_html=True)
 
     transforms = [
-        ("Komentar Asli",              "#6E7681",
+        ("Komentar Asli",              "#E6EDF3", 
          "Setuju bgt sama guru gembul. Nulis apa yg akan dilakukan tiap menit, itu namannya Lesson Plan/rencana pembelajaran, n itu ribet bgt"),
         ("Setelah Cleaning",           "#58A6FF",
          "Setuju bgt sama guru gembul Nulis apa yg akan dilakukan tiap menit itu namannya Lesson Planrencana pembelajaran n itu ribet bgt"),
@@ -1059,7 +1054,7 @@ elif page == "Pipeline NLP":
 # ── FOOTER ────────────────────────────────────────────────────────────────────
 st.markdown("""
 <hr style='border-color:#21262D;margin:40px 0 20px;'>
-<div style='text-align:center;font-size:12px;color:#6E7681;padding-bottom:24px;line-height:1.8;'>
+<div style='text-align:center;font-size:12px;color:#E6EDF3;padding-bottom:24px;line-height:1.8;'>
   <b style='color:#C9D1D9;'>Analisis Diskursus Komentar YouTube - Kritik Sistem Pendidikan Indonesia</b><br>
   Natural Language Processing &amp; Pemodelan Topik LDA<br>
   Sumber:
